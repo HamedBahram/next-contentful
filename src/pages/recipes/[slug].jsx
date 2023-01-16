@@ -1,8 +1,8 @@
 import client from '@/lib/contentful/client'
 import Image from 'next/image'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { useRouter } from 'next/router'
 import Skeleton from '@/components/recipes/Skeleton'
+import RichText from '@/components/RichText'
 
 const Recipe = ({ recipe }) => {
   const router = useRouter()
@@ -21,6 +21,7 @@ const Recipe = ({ recipe }) => {
           src={`https:${featuredImage.fields.file.url}`}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}
+          className='h-54 sm:h-96 object-cover object-center'
         />
       </div>
       <h2 className='mt-4 text-2xl font-bold'>{title}</h2>
@@ -33,7 +34,9 @@ const Recipe = ({ recipe }) => {
       </ul>
       <div>
         <h3 className='mt-10 text-xl font-medium'>Instructions:</h3>
-        <div className='mt-3'>{documentToReactComponents(instructions)}</div>
+        <div className='mt-3'>
+          <RichText content={instructions} />
+        </div>
       </div>
     </div>
   )
