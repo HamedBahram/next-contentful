@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 const PreviewAlert = () => {
   const [show, setShow] = useState(true)
@@ -26,16 +27,14 @@ const PreviewAlert = () => {
               <div className='p-4'>
                 <div className='flex items-start'>
                   <div className='flex-1'>
-                    <>
-                      This is page is a preview.{' '}
-                      <a
-                        href='/api/exit-preview'
-                        className='underline hover:text-cyan duration-200 transition-colors'
-                      >
-                        Click here
-                      </a>{' '}
-                      to exit preview mode.
-                    </>
+                    This is page is a preview.{' '}
+                    <Link
+                      href='/api/exit-preview'
+                      className='underline hover:text-cyan duration-200 transition-colors'
+                    >
+                      Click here
+                    </Link>{' '}
+                    to exit preview mode.
                   </div>
                   <div className='ml-4 flex flex-shrink-0'>
                     <button
