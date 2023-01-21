@@ -17,10 +17,10 @@ const Layout = ({ children }) => {
             </li>
             <li>
               <Link
-                href='/recipes'
+                href='/posts'
                 className='text-sm font-medium uppercase text-stone-400'
               >
-                Recipes
+                Posts
               </Link>
             </li>
           </ul>
